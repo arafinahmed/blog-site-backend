@@ -19,10 +19,10 @@ def passwordVerification(password):
 def createNewUser(username, password):
     checkname = nameVerification(username)
     if checkname:
-        return {"message": "invalid name"}
+        return [{"message": "invalid name"}, 400]
     checkpassword = passwordVerification(password)
     if checkpassword:
-        return {"password": "password length must be 4"}
+        return [{"password": "password length must be 4"}, 400]
     
 
     connection, cursor = connect()    
@@ -35,11 +35,11 @@ def createNewUser(username, password):
     row = result.fetchone()
     if row:
         connectClose(connection)
-        return {"message": "username already exist, try new username"}
+        return [{"message": "username already exist, try new username"}, 400]
 
     user = (None,username, password)
     insert_query = "INSERT INTO users VALUES(?,?,?)"
     cursor.execute(insert_query, user)
 
     connectClose(connection)
-    return {"message": "user created"}
+    return [{"message": "user created"}, 200]
