@@ -1,7 +1,6 @@
 from findingUser import User
 
-user = 'arafin'
-passw = 'hello'
+
 
 def auth_handle(username, password):
     user = User.find_by_username(username)    

@@ -40,5 +40,4 @@ class User:
 
 
         
-# user = User(1, 'arafin', 'hello')
-# user.find_by_username('arafin')
+
