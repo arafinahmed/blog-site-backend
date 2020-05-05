@@ -1,7 +1,5 @@
 from findingUser import User
 
-
-
 def auth_handle(username, password):
     user = User.find_by_username(username)    
     if user and user.password == password:
