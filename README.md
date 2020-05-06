@@ -16,8 +16,12 @@ import Flask -> pip install Flask
 
 
 //update post
-
 {
 	"postid" : "5",
 	"post": "edited post"
+} 
+
+//delete 
+{
+	"delete":"3"
 }
