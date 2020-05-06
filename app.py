@@ -14,5 +14,6 @@ api.add_resource(myPost, '/post')
 api.add_resource(newUser, '/register')
 api.add_resource(profile, "/profile/<string:authorid>")
 api.add_resource(detailsPost, "/post/<string:postid>")
+
 if __name__ == '__main__':
     app.run(port=8888, debug=True)

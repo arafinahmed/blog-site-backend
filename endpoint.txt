@@ -1,0 +1,48 @@
+Blog
+    Post 
+    Login
+    Edit 
+
+Show - open for all
+login > (show)  -- post > post edit/ delete 
+
+    
+
+-----------------------------------------
+#Anyone can watch
+    /profile/<authorid>
+get        #All post o single user -- DONE
+        
+
+
+-----------------------------------------
+
+
+-----------------------------------------
+#Only for signed in user 
+    /post>  
+post        #Can create a new post --DONE
+put         #update existing post --DONE
+delete      #Delete an existing --DONE
+get         #See all post new to old --DONE (Everyone can watch)
+
+GET 	    #Show a post in details  --DONE /post/<postid>
+-----------------------------------------
+
+-----------------------------------------
+ /register
+post     #Create new user and login --DONE
+/auth 
+    #Login existing user --DONE
+-----------------------------------------
+
+
+
+data = [
+    {
+        "userId" :
+        {
+
+        }
+    }
+]

@@ -1,8 +1,27 @@
 import sqlite3
 from findingUser import connect, connectClose
 
+def postVerification(name):
+    char = False
+    num = False
+    length = False
+    for c in name:
+        if c >='A' and c <='Z':
+            char = True
+        if c >='a' and c <='z':
+            char = True
+        if c >= '0' and c <= '9':
+            num = True
+    if len(name) > 4:
+        length = True
+    return((char or num) and length)
+
+
 def newPost(post, authorid):
     try:
+        verify = postVerification(post)
+        if verify == False:
+            return [{"message": "invalid post"}, 400]
         connection, cursor = connect()  
         create_table = "CREATE TABLE IF NOT EXISTS allposts (postid INTEGER PRIMARY KEY, post text, authorid INTEGER)"
         cursor.execute(create_table)
@@ -16,6 +35,9 @@ def newPost(post, authorid):
 
 def updatePost(postid, post, authorid):
     try:
+        verify = postVerification(post)
+        if verify == False:
+            return [{"message": "invalid post"}, 400]
         connection, cursor = connect()  
         create_table = "CREATE TABLE IF NOT EXISTS allposts (postid INTEGER PRIMARY KEY, post text, authorid INTEGER)"
         cursor.execute(create_table)
